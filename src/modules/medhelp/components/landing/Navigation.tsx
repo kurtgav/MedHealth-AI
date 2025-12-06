@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ShieldCheck, LogIn } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -48,16 +48,6 @@ export function Navigation() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="#login"
-            className={cn(
-              buttonVariants({ variant: 'ghost', size: 'sm' }),
-              'text-white hover:bg-white/10'
-            )}
-          >
-            <LogIn className="h-4 w-4" />
-            Log in
-          </Link>
           <Button
             size="sm"
             className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 text-white shadow-[0_8px_30px_rgba(77,212,232,0.35)] hover:scale-[1.01] hover:shadow-[0_10px_35px_rgba(236,72,153,0.35)]"

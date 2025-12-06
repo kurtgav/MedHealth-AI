@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { ArrowRight, ShieldAlert, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
@@ -20,12 +20,12 @@ const HeroVisualization = dynamic(() => import('./HeroVisualization').then((mod)
   ),
 });
 
-const textVariants = {
+const textVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: (i = 1) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.6, ease: 'easeOut' },
+    transition: { delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -47,7 +47,7 @@ export function Hero() {
             </span>
           </motion.div>
           <motion.h1
-            className="text-4xl font-semibold leading-tight md:text-5xl"
+            className="text-4xl font-semibold leading-tight text-white md:text-5xl"
             initial="hidden"
             animate="visible"
             variants={textVariants}
@@ -56,7 +56,7 @@ export function Hero() {
             {landingCopy.heroTitle}
           </motion.h1>
           <motion.p
-            className="max-w-xl text-lg text-cyan-50/85 md:text-xl"
+            className="max-w-xl text-lg text-white md:text-xl"
             initial="hidden"
             animate="visible"
             variants={textVariants}
@@ -115,16 +115,7 @@ export function Hero() {
             ))}
           </motion.div>
 
-          <motion.div
-            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-cyan-50/80 shadow-inner backdrop-blur"
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-            custom={5}
-          >
-            <ShieldAlert className="h-5 w-5 text-pink-300" />
-            Conservative by design: we always elevate risk when uncertain and surface contraindications first.
-          </motion.div>
+          {/* Safety note removed per request */}
         </div>
 
         <div className="relative flex-1">
