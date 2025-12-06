@@ -40,13 +40,6 @@ export async function POST(req: Request) {
           ],
         },
       ],
-      response_format: {
-        type: "json_schema",
-        json_schema: {
-          name: "TreatmentPlan",
-          schema: treatmentPlanSchema,
-        },
-      },
     });
 
     const content = message.content[0];
