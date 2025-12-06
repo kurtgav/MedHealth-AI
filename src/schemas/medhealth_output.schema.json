@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MedHealthAI_Output",
+    "type": "object",
+    "required": [
+      "patient_id",
+      "timestamp",
+      "treatment_plan",
+      "risk_level",
+      "flagged_issues",
+      "rationale",
+      "confidence_score"
+    ],
+    "properties": {
+    "patient_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "treatment_plan": {
+    "type": "object",
+    "required": ["recommendations"],
+    "properties": {
+    "recommendations": {
+    "type": "array",
+    "items": {
+    "type": "object",
+    "required": [
+      "medication",
+      "dose",
+      "route",
+      "frequency",
+      "duration",
+      "confidence"
+    ],
+    "properties": {
+    "medication": {"type": "string"},
+    "dose": {"type": "string"},
+    "route": {"type": "string"},
+    "frequency": {"type": "string"},
+    "duration": {"type": "string"},
+    "indication": {"type": "string"},
+    "monitoring": {"type": "array", "items": {"type": "string"}},
+    "alternative_options": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 100}
+    },
+    "additionalProperties": false
+    }
+    },
+    "non_pharmacologic": {"type": "array", "items": {"type": "string"}}
+    },
+    "additionalProperties": false
+    },
+    "risk_level": {"type": "string", "enum": ["Low", "Medium", "High", "Critical"]},
+    "flagged_issues": {
+    "type": "array",
+    "items": {
+    "type": "object",
+    "required": ["type", "description", "severity"],
+    "properties": {
+    "type": {"type": "string"},
+    "description": {"type": "string"},
+    "severity": {"type": "string", "enum": ["Major", "Moderate", "Minor", "Contraindicated"]},
+    "evidence": {"type": "string"}
+    },
+    "additionalProperties": false
+    }
+    },
+    "rationale": {"type": "string"},
+    "confidence_score": {"type": "number", "minimum": 0, "maximum": 100},
+    "raw_model_output": {"type": "string"}
+    },
+    "additionalProperties": false
+    }

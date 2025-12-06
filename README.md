@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MedHelp-AI
 
-## Getting Started
+AI-powered clinical decision support with animated landing, multi-step intake wizard, OpenAI-backed analysis, validation against a mock drug-interaction DB, and a treatment dashboard.
 
-First, run the development server:
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install --legacy-peer-deps
+OPENAI_API_KEY=your_key_here npm run dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment
+- `OPENAI_API_KEY` is required for `/api/medhelp/analyze` (OpenAI gpt-4.1 with JSON output).
+- Without the key the API returns an error; UI remains usable for intake/demo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key flows
+- Landing page: 3D hero (R3F), light trails, particles, feature cards.
+- Intake wizard: 5 steps (personal, history, meds, lifestyle, complaint) with Zod + RHF, BMI auto-calc, draft persistence, interaction hints, and quick-load samples.
+- AI analysis: `useAIAnalysis` → `/api/medhelp/analyze` → structured JSON; validation against `drugInteractionDatabase`.
+- Dashboard: risk gauge, critical alerts, treatment plan, flagged issues, rationale, alternatives; skeletons during loading.
+- Audit: `logClinicalAction` stores client-side audit entries on completed analyses.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Sample patients (quick-load buttons in wizard)
+- John Doe: warfarin + NSAID risk (bleeding).
+- Sarah Smith: beta-blocker contraindication with asthma.
+- Michael Chen: low weight → dosage caution.
 
-## Learn More
+## Files of interest
+- UI: `src/modules/medhelp/components/landing`, `src/modules/medhelp/components/intake`, `src/modules/medhelp/components/dashboard`
+- Services: `app/api/medhelp/analyze/route.ts`, `src/modules/medhelp/services/aiClient.ts`, `src/modules/medhelp/services/drugDatabase.service.ts`, `src/modules/medhelp/services/audit.service.ts`
+- Types & schemas: `src/modules/medhelp/types`, `src/modules/medhelp/constants/intakeSchema.ts`, `src/modules/medhelp/constants/prompt.ts`
+- Samples/DB: `src/modules/medhelp/data/examplePatients.ts`, `src/modules/medhelp/data/drugInteractions.ts`
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Known limitations
+- Audit log is client-side only (localStorage).
+- Drug interaction DB is a limited mock set; extend for broader coverage.
+- API errors surface in the UI banner; no retry/backoff yet.

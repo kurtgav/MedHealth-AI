@@ -1,0 +1,26 @@
+{
+  "id": "PAT-B-002",
+  "name": "Maria Reyes",
+  "age": 62,
+  "sex": "female",
+  "weight_kg": 90,
+  "height_cm": 160,
+  "bmi": 35.2,
+  "blood_pressure": "152/94",
+  "medical_history": [
+    "Type 2 Diabetes Mellitus",
+    "Chronic Kidney Disease Stage 3 (eGFR ~45)",
+    "Ischemic Heart Disease (MI 2019)"
+  ],
+  "allergies": ["sulfa"],
+  "current_medications": [
+    { "name": "Atorvastatin", "dose_mg": 40, "frequency": "once daily", "route": "PO" },
+    { "name": "Clopidogrel", "dose_mg": 75, "frequency": "once daily", "route": "PO" },
+    { "name": "Lisinopril", "dose_mg": 20, "frequency": "once daily", "route": "PO" },
+    { "name": "Metformin", "dose_mg": 1000, "frequency": "twice daily", "route": "PO" },
+    { "name": "Amiodarone", "dose_mg": 200, "frequency": "once daily", "route": "PO" }
+  ],
+  "lifestyle": { "smoking": "former", "alcohol": "social", "exercise": "rare" },
+  "primary_complaint": "Erectile dysfunction & fatigue"
+}
+

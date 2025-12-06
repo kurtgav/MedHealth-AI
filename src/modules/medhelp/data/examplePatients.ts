@@ -1,0 +1,110 @@
+import { PatientIntake } from '../types';
+import { calculateBMI } from '../utils';
+
+export const examplePatients: PatientIntake[] = [
+  {
+    personal: {
+      fullName: 'John Doe',
+      age: 68,
+      weightKg: 82,
+      heightCm: 175,
+      bmi: calculateBMI(82, 175),
+      gender: 'male',
+      bloodPressure: '130/78',
+      heartRate: 72,
+    },
+    history: {
+      conditions: ['Atrial Fibrillation', 'Osteoarthritis', 'Type 2 Diabetes'],
+      allergies: ['Penicillin'],
+      surgeries: [],
+      familyHistory: [],
+    },
+    medications: [
+      { name: 'Warfarin', dosage: '5mg', frequency: 'daily' },
+      { name: 'Metformin', dosage: '1000mg', frequency: 'twice daily' },
+    ],
+    lifestyle: {
+      smoking: 'former',
+      alcoholPerWeek: 7,
+      exerciseDaysPerWeek: 2,
+      exerciseIntensity: 'moderate',
+      packYears: 5,
+      dietType: 'Balanced',
+      sleepHours: 7,
+    },
+    complaint: {
+      primary: 'Severe knee pain',
+      duration: '2 weeks',
+      severity: 8,
+      treatmentsTried: 'OTC NSAIDs',
+    },
+  },
+  {
+    personal: {
+      fullName: 'Sarah Smith',
+      age: 45,
+      weightKg: 68,
+      heightCm: 165,
+      bmi: calculateBMI(68, 165),
+      gender: 'female',
+      bloodPressure: '145/90',
+      heartRate: 78,
+    },
+    history: {
+      conditions: ['Asthma', 'Hypertension', 'Anxiety'],
+      allergies: ['Sulfa drugs'],
+      surgeries: [],
+      familyHistory: [],
+    },
+    medications: [{ name: 'Albuterol inhaler', dosage: '2 puffs', frequency: 'as needed' }],
+    lifestyle: {
+      smoking: 'never',
+      alcoholPerWeek: 2,
+      exerciseDaysPerWeek: 5,
+      exerciseIntensity: 'moderate',
+      packYears: 0,
+      dietType: 'DASH',
+      sleepHours: 7,
+    },
+    complaint: {
+      primary: 'High blood pressure readings',
+      duration: '1 month',
+      severity: 6,
+      treatmentsTried: 'Lifestyle adjustments',
+    },
+  },
+  {
+    personal: {
+      fullName: 'Michael Chen',
+      age: 28,
+      weightKg: 55,
+      heightCm: 170,
+      bmi: calculateBMI(55, 170),
+      gender: 'male',
+      bloodPressure: '118/72',
+      heartRate: 70,
+    },
+    history: {
+      conditions: ['Depression'],
+      allergies: [],
+      surgeries: [],
+      familyHistory: [],
+    },
+    medications: [],
+    lifestyle: {
+      smoking: 'never',
+      alcoholPerWeek: 0,
+      exerciseDaysPerWeek: 7,
+      exerciseIntensity: 'high',
+      packYears: 0,
+      dietType: 'Mediterranean',
+      sleepHours: 8,
+    },
+    complaint: {
+      primary: 'Worsening depressive symptoms',
+      duration: '3 months',
+      severity: 7,
+      treatmentsTried: 'Talk therapy',
+    },
+  },
+];

@@ -1,0 +1,55 @@
+{
+  "patient_id": "PAT-B-002",
+  "timestamp": "2025-12-06T05:00:00Z",
+  "treatment_plan": {
+    "recommendations": [
+      {
+        "medication": "Sildenafil (PDE5 inhibitor)",
+        "dose": "25 mg",
+        "route": "PO",
+        "frequency": "PRN, max once daily",
+        "duration": "trial 4 weeks",
+        "indication": "Erectile dysfunction",
+        "monitoring": [
+          "Blood pressure pre- and post-dose if symptomatic",
+          "Assess for chest pain or syncope"
+        ],
+        "alternative_options": [
+          "Referral to urology for vacuum device or intracavernosal therapy",
+          "Consider tadalafil 5 mg daily only if cardiology clearance"
+        ],
+        "confidence": 60
+      }
+    ],
+    "non_pharmacologic": [
+      "Weight reduction program targeting 5-10% body weight",
+      "BP optimization and cardiac risk reduction",
+      "Lifestyle: increase exercise, smoking cessation reinforcement"
+    ]
+  },
+  "risk_level": "High",
+  "flagged_issues": [
+    {
+      "type": "Drug–Drug Interaction",
+      "description": "Amiodarone + Sildenafil/Tadalafil — increased risk of symptomatic hypotension and additive QT effects with amiodarone.",
+      "severity": "Major",
+      "evidence": "Amiodarone is a potent antiarrhythmic with QT-prolonging potential; nitrates and potent vasodilators increase risk of severe hypotension when combined with PDE5 inhibitors."
+    },
+    {
+      "type": "Drug–Drug Interaction",
+      "description": "Atorvastatin (40 mg) + Amiodarone — increased risk of statin-related myopathy; consider dose reduction of statin.",
+      "severity": "Moderate",
+      "evidence": "Amiodarone inhibits CYP enzymes and can increase statin levels, increasing myopathy/rhabdomyolysis risk."
+    },
+    {
+      "type": "Clinical Contraindication",
+      "description": "Cardiovascular disease (recent MI history) with uncontrolled hypertension (BP 152/94) increases risk for sexual activity or sudden cardiac events with initiation of PDE5 inhibitors.",
+      "severity": "Major",
+      "evidence": "Guidelines recommend cardiology clearance prior to PDE5 initiation in patients with unstable cardiovascular disease; uncontrolled BP >150/90 increases risk."
+    }
+  ],
+  "rationale": "Patient has multiple high-risk features (amiodarone, CKD, ischemic heart disease, uncontrolled hypertension) which raise the safety risk to HIGH. If considering PDE5 inhibitor for ED, obtain cardiology clearance and optimize BP; consider non-pharmacologic approaches. Adjust atorvastatin dose or monitor CK/AST because amiodarone increases statin exposure.",
+  "confidence_score": 68,
+  "raw_model_output": "See analysis: major interactions include amiodarone+PDE5 and amiodarone+atorvastatin; cardiology clearance recommended prior to PDE5; adjust or monitor statin dosing; renal monitoring for metformin."
+}
+
