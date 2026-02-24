@@ -8,8 +8,12 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { navLinks } from '../../constants/landing';
 import { colors } from '../../constants/theme';
+import { ProfileDropdown } from '@/src/modules/auth/components/ProfileDropdown';
+import { useAuth } from '@/src/modules/auth/hooks/useAuth';
 
 export function Navigation() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
@@ -48,14 +52,18 @@ export function Navigation() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button
-            size="sm"
-            className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 text-white shadow-[0_8px_30px_rgba(77,212,232,0.35)] hover:scale-[1.01] hover:shadow-[0_10px_35px_rgba(236,72,153,0.35)]"
-            style={{ border: `1px solid ${colors.glassBorder}` }}
-            asChild
-          >
-            <Link href="#intake">Get Started</Link>
-          </Button>
+          {isAuthenticated ? (
+            <ProfileDropdown />
+          ) : (
+            <Button
+              size="sm"
+              className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 text-white shadow-[0_8px_30px_rgba(77,212,232,0.35)] hover:scale-[1.01] hover:shadow-[0_10px_35px_rgba(236,72,153,0.35)]"
+              style={{ border: `1px solid ${colors.glassBorder}` }}
+              asChild
+            >
+              <Link href="/login">Get Started</Link>
+            </Button>
+          )}
         </div>
       </div>
     </motion.header>

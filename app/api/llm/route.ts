@@ -99,7 +99,6 @@ async function fetchOpenAI(params: { apiKey: string; model: string; system: stri
   const jsonText = match ? match[1].trim() : rawText.trim();
 
   return safeParseJson(jsonText, rawText);
-}
 
 function safeParseJson(jsonText: string, rawText: string): unknown {
   try {

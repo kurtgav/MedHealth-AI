@@ -39,6 +39,7 @@ export function ComplaintStep() {
           id="treatmentsTried"
           rows={3}
           placeholder="Rest, ice, NSAIDs..."
+          className="text-white placeholder:text-slate-300"
           {...register('complaint.treatmentsTried')}
         />
       </div>

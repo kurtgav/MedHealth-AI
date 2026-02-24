@@ -63,6 +63,9 @@ export function LayoutShell() {
               if (!plan) return;
               navigator.clipboard?.writeText(JSON.stringify(plan, null, 2)).catch(() => {});
             }}
+            onPrint={() => {
+              if (typeof window !== "undefined") window.print();
+            }}
           />
           <AuditLog auditLog={auditLog} circuitOpenUntil={circuitOpenUntil} />
         </main>

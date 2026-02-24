@@ -233,7 +233,7 @@ export default function ScaffoldPage() {
         </main>
 
         <footer className="mt-6 text-xs text-slate-500">
-          Demo scaffold — replace API key and system prompt in <code>/app/api/llm/route.ts</code>
+          Demo scaffold out — replace API key and system prompt in <code>/app/api/llm/route.ts</code>
         </footer>
       </div>
     </div>

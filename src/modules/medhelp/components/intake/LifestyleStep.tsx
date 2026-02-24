@@ -33,7 +33,7 @@ export function LifestyleStep() {
         ) : null}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="exerciseDaysPerWeek">Exercise (days/week)</Label>
+        <Label htmlFor="exerciseDaysPerWeek">Excer(days/week)</Label>
         <Input
           id="exerciseDaysPerWeek"
           type="number"

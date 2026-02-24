@@ -63,4 +63,5 @@ function TabsContent({
   )
 }
 
+// tabs variants cancel animations to button variants as well as progress variants 
 export { Tabs, TabsList, TabsTrigger, TabsContent }

@@ -76,7 +76,7 @@ export function MedicationsStep({ medicationsArray }: MedicationsStepProps) {
                 ) : null}
               </div>
               <div className="space-y-2">
-                <Label>Frequency</Label>
+                <Label>Frequency</Label>22
                 <Input list="frequency-options" placeholder="once daily" {...register(`medications.${index}.frequency` as const)} />
                 {errors.medications?.[index]?.frequency ? (
                   <p className="text-xs text-red-400">{errors.medications[index]?.frequency?.message}</p>
@@ -115,7 +115,7 @@ export function MedicationsStep({ medicationsArray }: MedicationsStepProps) {
         <div className="rounded-2xl border border-amber-400/30 bg-amber-500/10 p-4 text-amber-100">
           <div className="mb-2 flex items-center gap-2 text-sm font-semibold">
             <AlertTriangle className="h-4 w-4" />
-            Real-time safety hints
+            Real-time safety hints that will work for you problems about health and safety
           </div>
           <ul className="space-y-1 text-sm">
             {warnings.map((warning) => (
